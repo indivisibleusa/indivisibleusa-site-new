@@ -193,6 +193,8 @@
     }
 
     .hero h1 .red { color: var(--red); }
+    .hero-sub-br { display: inline; }
+    @media (max-width: 600px) { .hero-sub-br { display: none; } }
 
     .hero-sub {
       font-size: clamp(16px, 2vw, 19px);
@@ -363,7 +365,7 @@
       align-items: flex-start;
       gap: 18px;
       padding: 24px;
-      background: var(--glass-bg);
+      background: #e6ecf5;
       backdrop-filter: blur(10px);
       border: 1px solid var(--glass-border);
       border-left: 3px solid var(--red);
@@ -559,7 +561,7 @@
 
     /* Event cards — same elevated treatment as feature cards */
     .event-card {
-      background: linear-gradient(160deg, #ffffff 0%, #f5f7fb 100%);
+      background: linear-gradient(160deg, #e6ecf5 0%, #dde5f2 100%);
       border: 1px solid rgba(26,39,68,0.07);
       border-radius: 28px;
       padding: 32px 28px;
@@ -1183,7 +1185,7 @@
     <h1>Building the<br><span style="white-space:nowrap"><span class="slot-wrap red" data-words="Modern,Proud,Free,Bold,True,Brave">Modern</span> Patriot.</span></h1>
 
     <p class="hero-sub">
-      In a world drowning in negativity, we hope to be a beacon of light. A movement that celebrates the beauty, the grace, and the love that still runs through this country. We are not a protest. We are the opposite of one.
+      In a world drowning in negativity, we hope to be a beacon of light.<span class="hero-sub-br"><br></span> We celebrate the beauty, the grace, and the love that still runs through this country.
     </p>
 
     <div class="social-proof">
@@ -1230,16 +1232,28 @@
           </div>
           <div>
             <h3>Faith</h3>
-            <p>This country was built on something bigger than politics. We don't pretend otherwise.</p>
+            <p>Faith built this country before politics had a chance to divide it. We remember.</p>
           </div>
         </div>
         <div class="pillar blue-pillar">
           <div class="pillar-icon">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAABWGlDQ1BJQ0MgUHJvZmlsZQAAeJx9kLFLw1AQxr9WpaB1EB0cHDKJQ5SSCro4tBVEcQhVweqUvqapkMZHkiIFN/+Bgv+BCs5uFoc6OjgIopPo5uSk4KLleS+JpCJ6j+N+fO+74zggOW5wbvcDqDu+W1zKK5ulLSX1jAS9IAzm8Zyur0r+rj/j/T703k7LWb///43Biukxqp+UGcZdH0ioxPqezyXvE4+5tBRxS7IV8onkcsjngWe9WCC+JlZYzagQvxCr5R7d6uG63WDRDnL7tOlsrMk5lBNYxA48cNgw0IQCHdk//LOBv4BdcjfhUp+FGnzqyZEiJ5jEy3DAMAOVWEOGUpN3ju53F91PjbWDJ2ChI4S4iLWVDnA2Rydrx9rUPDAyBFy1ueEagdRHmaxWgddTYLgEjN5Qz7ZXzWrh9uk8MPAoxNskkDoEui0hPo6E6B5T8wNw6XwBA6diE8HYWhMAAAFzSURBVHja7ZjPSsNAEMZ/Wq0XD0XEV2n6j1baoLVFaqXqRQTx6MV3U8S7Ir6GN0Hw4kEtag+dgIZUTNLdTnS/y2yG7ObL5JvN7ICDgwrsZ5V4E/C0kisBfshXjbvIvEXCt8CrEAeoAEMZtzUSDpAXWwDugAZw+dvJC5ZI1oBl4Bn4EF9gP7Vq+BDoyNgTaWyH7ulqksQjsCLjNdF0Qa4D4ueaCA+BRaAILInvXmxObFmTJNrAIMJ/KnYvQiIOJlB0ITCIAxcCw/BcCBwyvK+W/mSymS5+6lmKWi3BS23aIldJMfc4pPO+abLTLgl9W1GuYqHJMs2kuxbbS7nOu+1d4gU4SnEqyc9qL+0nTMDM6NcHzmyQbcT43D9hoKlO8IGtkK+cRD5zKX4UNwnmtRi3qFaBN+CBcUPFKNaBkxiJ2JrwVZraaondWT48zi7Q1RS1ekTB3ZGxlQJ8Un94Q+wV39ulT1+SLid6vNBa3+64095/wAh+UyzKcSeaAAAAAABJRU5ErkJggg==" width="22" height="22" style="filter: brightness(0) saturate(100%) invert(9%) sepia(98%) saturate(3600%) hue-rotate(210deg) brightness(90%) contrast(105%);"/>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Flame -->
+              <path d="M12 2c0 0-2 2.5-2 4.5 0 1.1.9 2 2 2s2-.9 2-2c0-2-2-4.5-2-4.5z"/>
+              <!-- Torch cup -->
+              <path d="M9.5 8.5h5l-1 3h-3l-1-3z"/>
+              <!-- Torch handle -->
+              <path d="M10.5 11.5l-.8 6h4.6l-.8-6"/>
+              <!-- Base plate -->
+              <path d="M8.5 17.5h7"/>
+              <!-- Arm -->
+              <path d="M12 17.5v2.5"/>
+              <path d="M10 20h4"/>
+            </svg>
           </div>
           <div>
             <h3>Freedom</h3>
-            <p>The right to live how you want, say what you mean, and build without asking permission.</p>
+            <p>Freedom to life, freedom to liberty, and freedom to pursue happiness.</p>
           </div>
         </div>
         <div class="pillar blue-pillar">
@@ -1251,7 +1265,7 @@
           </div>
           <div>
             <h3>Community</h3>
-            <p>We show up in person. At events, in cities, with people who mean it.</p>
+            <p>We show up in person, we show up online, we show up with people who share our values.</p>
           </div>
         </div>
         <div class="pillar">
@@ -1262,7 +1276,7 @@
           </div>
           <div>
             <h3>Identity</h3>
-            <p>Patriotism fell out of style. We think that's worth fixing. The Modern Patriot is young, shows up, and doesn't apologize for loving this country.</p>
+            <p>Loving your country is cool. In fact, it is the bedrock of a thriving nation.</p>
           </div>
         </div>
       </div>
