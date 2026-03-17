@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Indivisible USA — Building the Modern Patriot</title>
   <meta name="description" content="One nation. One movement. Join thousands of patriots standing for freedom, faith, and the American way of life." />
 
@@ -1232,6 +1232,12 @@
     @keyframes scrollCueBob {
       0%, 100% { transform: translateX(-50%) translateY(0); }
       50%       { transform: translateX(-50%) translateY(5px); }
+    }
+
+    /* Lock zoom on touch devices */
+    html {
+      touch-action: pan-x pan-y;
+      -ms-touch-action: pan-x pan-y;
     }
 
     /* ===== MOBILE RESPONSIVE — START (remove block to revert) ===== */
