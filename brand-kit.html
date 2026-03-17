@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Brand Kit — Indivisible USA</title>
-  <meta name="description" content="Partner with Indivisible USA. 58.5K followers, 6.3M+ monthly views, 18.3% engagement. The modern patriot movement." />
+  <meta name="description" content="Partner with Indivisible USA. 59.5K followers, 6.3M+ monthly views, 18.3% engagement. The modern patriot movement." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -1691,10 +1691,22 @@
       color: rgba(255,255,255,0.40);
     }
     @media (max-width: 768px) {
-      .tier-hero-content { grid-template-columns: 1fr; gap: 32px; }
-      .tier-hero { padding: 36px 28px; }
-      .tier-hero-right { flex-direction: row; flex-wrap: wrap; }
-      .tier-hero-stat { flex: 1; min-width: 120px; }
+      .tier-hero-content { grid-template-columns: 1fr; gap: 24px; }
+      .tier-hero { padding: 28px 20px; }
+      .tier-hero-right {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .tier-hero-stat {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 6px;
+        padding: 14px 10px;
+      }
+      .tier-hero-stat-num { font-size: 22px; }
+      .tier-hero-stat-label { font-size: 11px; }
     }
 
     .tier-simple-icon {
@@ -1724,10 +1736,40 @@
     #tiers .section-sub { color: rgba(255,255,255,0.40); }
 
     @media (max-width: 1024px) {
-      .tier-simple-grid { grid-template-columns: repeat(2, 1fr); }
+      .tier-simple-grid { grid-template-columns: repeat(2, 1fr) !important; }
     }
-    @media (max-width: 600px) {
-      .tier-simple-grid { grid-template-columns: 1fr; }
+    @media (max-width: 768px) {
+      .tier-simple-grid { grid-template-columns: 1fr !important; }
+      .tier-simple {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        text-align: left;
+        gap: 0 16px;
+        padding: 24px;
+      }
+      .tier-simple-icon {
+        grid-row: 1 / 3;
+        align-self: center;
+        margin-bottom: 0;
+        font-size: 32px;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+      }
+      .tier-simple-name {
+        align-self: end;
+        margin-bottom: 2px;
+      }
+      .tier-simple-desc {
+        align-self: start;
+      }
+      .tier-simple-desc br { display: none; }
     }
 
     /* ===== TIMELINE HORIZONTAL SCROLL ===== */
@@ -1878,6 +1920,227 @@
       .timeline-track { gap: 32px; }
       .timeline-header .section-title { font-size: 32px; }
     }
+
+    /* ===== MOBILE OVERFLOW FIXES ===== */
+
+    /* Lock zoom on touch devices */
+    html {
+      touch-action: pan-x pan-y;
+      -ms-touch-action: pan-x pan-y;
+    }
+
+    @media (max-width: 768px) {
+      /* Movement section — engagement + audience cards stack */
+      #movement [style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+
+      /* American Audience card — reduce padding, center content */
+      #movement [style*="American audience"] ~ div,
+      #movement [style*="display:flex;gap:32px"] {
+        gap: 16px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+      }
+
+      /* American Audience — keep side by side, align tops */
+      #movement [style*="display:flex;gap:32px"] {
+        gap: 20px !important;
+        align-items: flex-start !important;
+      }
+
+      /* American Audience sub-columns — smaller */
+      #movement [style*="flex:1;max-width:220px"] {
+        max-width: 160px !important;
+      }
+
+      /* Align both percentage numbers to same size */
+      #movement [style*="flex:1;max-width"] [style*="font-size:clamp(2.6rem"],
+      #movement [style*="flex:1;max-width"] [style*="font-size:clamp(2.8rem"] {
+        font-size: 2.2rem !important;
+      }
+
+      /* Compact country breakdown rows — readable size */
+      #movement [style*="flex:1;max-width:220px"] [style*="display:flex;flex-direction:column;gap:8px"] {
+        gap: 6px !important;
+        font-size: 14px !important;
+      }
+
+      /* American Audience card — less padding */
+      #movement [style*="American audience"] {
+        padding: 24px 16px !important;
+      }
+
+      /* Center the American Audience header */
+      #movement [style*="American audience"] [style*="text-align:center;margin-bottom:24px"] {
+        margin-bottom: 14px !important;
+      }
+
+      /* Shrink emoji + title */
+      #movement [style*="font-size:32px;margin-bottom:8px"] {
+        font-size: 22px !important;
+        margin-bottom: 4px !important;
+      }
+
+      #movement [style*="font-size:clamp(1.2rem,2.5vw,1.6rem)"] {
+        font-size: 1rem !important;
+        letter-spacing: 0.1em !important;
+      }
+
+      #movement [style*="font-size:14px;color:rgba(255,255,255,0.40);margin-top:8px"] {
+        font-size: 14px !important;
+        margin-top: 4px !important;
+      }
+
+      /* Engagement card — reduce padding and spacing */
+      #movement [style*="background:#262640"][style*="padding:40px 32px"]:first-child {
+        padding: 24px 20px !important;
+      }
+
+      /* Shrink engagement big number */
+      #movement [style*="font-size:clamp(3.6rem,6vw,5.4rem)"] {
+        font-size: 2.8rem !important;
+      }
+
+      /* Engagement "by platform" row — compact horizontal */
+      #movement [style*="display:flex;justify-content:center;gap:28px"] {
+        gap: 16px !important;
+      }
+
+      /* Platform stat numbers — still prominent but compact */
+      #movement [style*="display:flex;justify-content:center;gap:28px"] [style*="font-size:32px"] {
+        font-size: 26px !important;
+      }
+
+      /* Industry avg — legible */
+      #movement [style*="display:flex;justify-content:center;gap:28px"] [style*="font-size:16px"] {
+        font-size: 14px !important;
+      }
+
+      /* Platform labels (Instagram/TikTok/Facebook) — bump up */
+      #movement [style*="display:flex;justify-content:center;gap:28px"] [style*="font-size:11px"] {
+        font-size: 12px !important;
+      }
+
+      /* Industry avg label */
+      #movement [style*="display:flex;justify-content:center;gap:28px"] [style*="font-size:9px"] {
+        font-size: 11px !important;
+      }
+
+      /* Source line at bottom */
+      #movement [style*="font-size:12px;color:rgba(255,255,255,0.25)"] {
+        font-size: 13px !important;
+      }
+
+      /* Reduce margins in engagement card */
+      #movement [style*="text-align:center;margin:28px 0"] {
+        margin: 16px 0 !important;
+      }
+
+      #movement [style*="padding-top:24px;border-top"] {
+        padding-top: 16px !important;
+      }
+
+      #movement [style*="margin-bottom:20px;text-align:center"] {
+        margin-bottom: 12px !important;
+      }
+
+      /* Section title row — stack title and handle */
+      .section-title-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+      }
+
+      /* Profile handle — wrap if needed */
+      .profile-handle {
+        flex-wrap: wrap;
+      }
+
+      /* FB Performance grid — stack */
+      #facebook [style*="grid-template-columns:1fr 1fr;gap:24px"] {
+        grid-template-columns: 1fr !important;
+      }
+
+      /* FB growth chart header — stack */
+      .fb-growth-header {
+        flex-direction: column !important;
+        gap: 12px !important;
+      }
+
+      .fb-growth-total {
+        text-align: left !important;
+      }
+
+      /* Growth chart bars — smaller text */
+      .growth-bar-label {
+        font-size: 10px !important;
+      }
+
+      .growth-bar-value {
+        font-size: 11px !important;
+      }
+
+      /* FB growth wrap — tighter padding */
+      .fb-growth-wrap {
+        padding: 24px 18px !important;
+      }
+
+      /* IG hero row — already handled at 1024/600, reinforce */
+      .ig-hero-row {
+        grid-template-columns: 1fr 1fr !important;
+      }
+
+      /* Hero stats — single column */
+      .hero-stats {
+        grid-template-columns: 1fr !important;
+      }
+
+      /* FB stat grid — single column on small */
+      .fb-stat-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* IG hero row — single column */
+      .ig-hero-row {
+        grid-template-columns: 1fr !important;
+      }
+
+      /* Growth chart — even smaller */
+      .growth-chart {
+        height: 120px !important;
+        padding: 0 8px !important;
+        gap: 4px !important;
+      }
+
+      .growth-bar-label {
+        font-size: 9px !important;
+        letter-spacing: 0 !important;
+      }
+
+      .growth-bar-value {
+        font-size: 10px !important;
+      }
+
+      .growth-bar {
+        max-width: 36px !important;
+      }
+
+      /* Tighter section padding */
+      .section-wrap {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      /* IG panels tighter */
+      .ig-panel, .fb-panel {
+        padding: 20px 16px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1930,7 +2193,7 @@
 
     <div class="hero-pillars">
       <div class="hero-pillar">
-        <div class="hero-pillar-num" style="color:var(--ink);" data-count="58000" data-suffix="+" data-format="number">0</div>
+        <div class="hero-pillar-num" style="color:var(--ink);" data-count="59500" data-suffix="+" data-format="number">0</div>
         <div class="hero-pillar-label">Followers</div>
         <div class="hero-pillar-sub">Across all platforms</div>
       </div>
@@ -1960,7 +2223,7 @@
   <div class="section-wrap">
     <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
       <div class="section-label">The Movement</div>
-      <h2 class="section-title">Zero to <span class="red">58,500</span> Followers<br>in Four Months</h2>
+      <h2 class="section-title">Zero to <span class="red">59,500</span> Followers<br>in Four Months</h2>
       <p style="font-size:15px;color:rgba(255,255,255,0.35);margin-top:12px;letter-spacing:0.08em;">Across all platforms</p>
     </div>
 
@@ -2321,12 +2584,12 @@
           <span style="color:var(--blue);">@dailypledgeofallegiance</span>
         </a>
       </div>
-      <p class="section-sub" style="font-size:18px;">We started on Facebook later than Instagram — January 2026.<br>Hit 28K followers in two months. Zero ad spend. All organic.</p>
+      <p class="section-sub" style="font-size:18px;">We started on Facebook later than Instagram — January 2026.<br>Hit 29K followers in two months. Zero ad spend. All organic.</p>
     </div>
 
     <div class="fb-stat-grid reveal">
       <div class="fb-stat">
-        <div class="fb-stat-num" data-count="28000" data-suffix="" data-format="abbr">0</div>
+        <div class="fb-stat-num" data-count="29000" data-suffix="" data-format="abbr">0</div>
         <div class="fb-stat-label">Followers</div>
         <div class="fb-stat-sub">From zero in Jan 2026 and rapidly growing</div>
       </div>
@@ -2485,7 +2748,7 @@
             <div class="fb-growth-sub">Net follower growth each week over 8 weeks.</div>
           </div>
           <div class="fb-growth-total">
-            <div class="fb-growth-total-num">28K</div>
+            <div class="fb-growth-total-num">29K</div>
             <div class="fb-growth-total-label">Net gained in 8 weeks</div>
           </div>
         </div>
@@ -2526,8 +2789,8 @@
             <div class="growth-bar-label">Week 7</div>
           </div>
           <div class="growth-bar-col">
-            <div class="growth-bar-value">+5.2K</div>
-            <div class="growth-bar red-bar" data-height="72%"></div>
+            <div class="growth-bar-value">+6.2K</div>
+            <div class="growth-bar red-bar" data-height="86%"></div>
             <div class="growth-bar-label">Week 8</div>
           </div>
         </div>
@@ -2753,7 +3016,7 @@
         <div class="tier-hero-badge">Actively Seeking</div>
         <div class="tier-hero-content">
           <div class="tier-hero-left">
-            <div style="font-size:28px;margin-bottom:12px;">&#127909;</div>
+            <div style="width:48px;height:48px;background:rgba(178,34,52,0.12);border:1px solid rgba(178,34,52,0.20);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e05c6f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
             <div class="tier-hero-name">30-Day Product Placement</div>
             <div class="tier-hero-desc">Your product placed in every Daily Pledge reel, across every platform, for 30 consecutive days. Instagram, Facebook, TikTok. One month of constant, organic exposure to a community that actually pays attention.</div>
           </div>
@@ -2826,7 +3089,7 @@
             <span style="font-size:15px;color:rgba(255,255,255,0.65);">Your brand alongside 175+ people who showed up before sunrise</span>
           </div>
         </div>
-        <a href="mailto:hello@indivisible-usa.com" class="btn-primary">Sponsor the Next Run</a>
+        <a href="mailto:ty@indivisible-usa.com" class="btn-primary">Sponsor the Next Run</a>
       </div>
 
       <!-- Video 1 -->
@@ -2875,12 +3138,12 @@
       <div class="section-label">Let's Go</div>
       <h2 class="section-title">Build Something<br><span class="red">Together</span></h2>
       <p>We don't work with everyone. If your brand<br>stands for something real, let's talk.</p>
-      <a href="mailto:hello@indivisible-usa.com" class="cta-email">
+      <a href="mailto:ty@indivisible-usa.com" class="cta-email">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
           <polyline points="22,6 12,13 2,6"/>
         </svg>
-        hello@indivisible-usa.com
+        ty@indivisible-usa.com
       </a>
     </div>
   </div>
@@ -3251,6 +3514,22 @@
       btn.disabled = false;
     }
   }
+</script>
+
+<!-- Zoom lock — prevents pinch-zoom and double-tap zoom on mobile -->
+<script>
+  document.addEventListener('gesturestart', function(e) { e.preventDefault(); });
+  document.addEventListener('gesturechange', function(e) { e.preventDefault(); });
+  document.addEventListener('gestureend', function(e) { e.preventDefault(); });
+  document.addEventListener('touchstart', function(e) {
+    if (e.touches.length > 1) { e.preventDefault(); }
+  }, { passive: false });
+  var lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e) {
+    var now = Date.now();
+    if (now - lastTouchEnd <= 300) { e.preventDefault(); }
+    lastTouchEnd = now;
+  }, false);
 </script>
 
 </body>
