@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Indivisible USA — Building the Modern Patriot</title>
   <meta name="description" content="One nation. One movement. Join thousands of patriots standing for freedom, faith, and the American way of life." />
 
@@ -1234,6 +1234,12 @@
       50%       { transform: translateX(-50%) translateY(5px); }
     }
 
+    /* Lock zoom on touch devices */
+    html {
+      touch-action: pan-x pan-y;
+      -ms-touch-action: pan-x pan-y;
+    }
+
     /* ===== MOBILE RESPONSIVE — START (remove block to revert) ===== */
 
     /* A. Ambient blobs — shrink on mobile */
@@ -2016,6 +2022,22 @@
       c.appendChild(s);
     }
   })();
+</script>
+
+<!-- Zoom lock — prevents pinch-zoom and double-tap zoom on mobile -->
+<script>
+  document.addEventListener('gesturestart', function(e) { e.preventDefault(); });
+  document.addEventListener('gesturechange', function(e) { e.preventDefault(); });
+  document.addEventListener('gestureend', function(e) { e.preventDefault(); });
+  document.addEventListener('touchstart', function(e) {
+    if (e.touches.length > 1) { e.preventDefault(); }
+  }, { passive: false });
+  var lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e) {
+    var now = Date.now();
+    if (now - lastTouchEnd <= 300) { e.preventDefault(); }
+    lastTouchEnd = now;
+  }, false);
 </script>
 
 </body>
