@@ -1923,10 +1923,15 @@
 
     /* ===== MOBILE OVERFLOW FIXES ===== */
 
-    /* Lock zoom on touch devices */
-    html {
+    /* Lock zoom on touch devices — applied to all elements */
+    *, *::before, *::after {
       touch-action: pan-x pan-y;
       -ms-touch-action: pan-x pan-y;
+    }
+    html {
+      -webkit-text-size-adjust: 100%;
+      -moz-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     @media (max-width: 768px) {
